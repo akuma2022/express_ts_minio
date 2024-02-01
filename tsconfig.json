@@ -1,0 +1,26 @@
+{
+  "main": "dist/index.js",
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "strict": true,
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@/*": ["src/*"],
+    },
+  },
+  "typeRoots": ["./node_modules/@types", "./src/@types"],
+  "lib": ["ES2019", "DOM"],
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"],
+}
