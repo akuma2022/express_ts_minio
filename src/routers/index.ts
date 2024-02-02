@@ -2,6 +2,7 @@ import { uploadRouter } from "@/controllers/upload.controller";
 import compression from "compression";
 import express from "express";
 import helmet from "helmet";
+import mongoose from "mongoose";
 import morgan from "morgan";
 import multer from "multer";
 
@@ -11,10 +12,8 @@ const app = express();
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(compression());
-app.use(multer().single("file"));
-// init db
 
 // init routes
-app.use("/upload", uploadRouter);
+app.use("/", uploadRouter);
 
 export default app;

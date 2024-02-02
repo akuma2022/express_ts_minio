@@ -1,3 +1,4 @@
+import { fileNameToSlug, removeAscent } from "@/utils/global-func";
 import * as minio from "minio";
 import multer from "multer";
 import { v4 as uuidv4 } from "uuid";
@@ -14,8 +15,9 @@ export const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./uploads");
   },
+
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uuidv4() + "-" + file.originalname);
+    cb(null, uuidv4() + "-" + removeAscent(file.originalname));
   },
 });

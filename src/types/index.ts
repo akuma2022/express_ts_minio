@@ -2,24 +2,13 @@ export interface BufferedFile {
   fieldname: string;
   originalname: string;
   encoding: string;
-  mimetype: AppMimeType;
+  mimetype: string;
+  filename: string;
   size: number;
-  buffer: Buffer | string;
+  destination: string;
+  path: string;
 }
 
-export interface StoredFile extends HasFile, StoredFileMetadata {}
-
-export interface HasFile {
-  file: Buffer | string;
+export interface FileCreate extends BufferedFile {
+  cluster: string;
 }
-export interface StoredFileMetadata {
-  id: string;
-  name: string;
-  encoding: string;
-  mimetype: AppMimeType;
-  size: number;
-  updatedAt: Date;
-  fileSrc?: string;
-}
-
-export type AppMimeType = "image/png" | "image/jpeg";
